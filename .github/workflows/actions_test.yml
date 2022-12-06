@@ -4,6 +4,7 @@ jobs:
   first_job_test:
     runs-on: ubuntu-latest
     steps:
+      name: Test
         - uses: actions/checkout@v3
         - uses: actions/setup-python@v4
           with:
