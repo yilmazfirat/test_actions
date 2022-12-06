@@ -3,14 +3,14 @@ on: push
 jobs:
   first_job_test:
     runs-on: ubuntu-latest
-    steps:
-      - name: Get code
-        - uses: actions/checkout@v3
-      - name: intstall python
-        - uses: actions/setup-python@v4
-          with:
-            python-version: "3.10"
-            cache: "pip" # caching pip dependencies
-      - name: run code
-        - run: pip install -r requirements.txt
+      steps:
+        - name: Get code
+          - uses: actions/checkout@v3
+        - name: intstall python
+          - uses: actions/setup-python@v4
+            with:
+              python-version: "3.10"
+              cache: "pip" # caching pip dependencies
+        - name: run code
+          - run:  pip install -r requirements.txt
  
