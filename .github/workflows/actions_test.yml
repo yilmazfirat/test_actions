@@ -11,17 +11,13 @@ jobs:
         with:
           python-version: "3.10"
           cache: "pip" # caching pip dependencies
-      - name: Cache python libraries
-        id: chached_libraries
-        uses: actions/cache@v3
-        with:
-          path: ~/.cache/pip
-          key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }} 
-          restore-keys: |
-            ${{ runner.os }}-pip-
-      - name: Install dependencies
+          cache-dependency-path: |
+            **/setup.cfg
+            **/requirements*.txt
+      - run: pip install -e . -r requirements.txt
+      #- name: Install dependencies
         #if: steps.chached_libraries.outputs.cache-hit != 'true'
-        run: pip install -r requirements.txt
+       # run: pip install -r requirements.txt
       - name: Run tests
         run: python test_main.py
   run_code:
@@ -30,16 +26,15 @@ jobs:
     steps:
       - name: Get code
         uses: actions/checkout@v3
-      - name: Cache python libraries
-        id: chached_libraries
-        uses: actions/cache@v3
+      - name: SetUp Python
+        uses: actions/setup-python@v4
         with:
-          path: ~/.cache/pip
-          key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}      
-          restore-keys: |
-            ${{ runner.os }}-pip-
-      - name: Install dependencies
-        run: pip install -r requirements.txt
+          python-version: "3.10"
+          cache: "pip" # caching pip dependencies
+          cache-dependency-path: |
+            **/setup.cfg
+            **/requirements*.txt
+      - run: pip install -e . -r requirements.txt
       - name: Run main code
         run: python main.py
       - name: Upload artifacts
