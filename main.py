@@ -16,4 +16,4 @@ dict = {
 }
 
 df = pd.DataFrame(dict,columns=['x','y'])
-df.hvplot.scatter(x,y)
+df.hvplot.scatter('x','y')
