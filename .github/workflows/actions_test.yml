@@ -15,7 +15,7 @@ jobs:
       - run: pip install -r requirements.txt
       - run: python test_main.py
   run_code:
-    needs: test_job
+    # needs: test_job
     runs-on: ubuntu-latest
     steps:
       - name: Get code
