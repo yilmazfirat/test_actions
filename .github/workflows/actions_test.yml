@@ -18,7 +18,7 @@ jobs:
           path: ~/.cache/pip
           key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }} 
       - name: Install dependencies
-        if: steps.chached_libraries.outputs.cache-hit != 'true'
+        #if: steps.chached_libraries.outputs.cache-hit != 'true'
         run: pip install -r requirements.txt
       - name: Run tests
         run: python test_main.py
