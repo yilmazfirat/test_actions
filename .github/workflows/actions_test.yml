@@ -79,7 +79,7 @@ jobs:
         uses: actions/download-artifact@v3
         with: 
           name: pictures
-          wait-on: 'http://localhost:8000'
+          path: 'http://localhost:8000'
       - name: Output contents
         run: ls
         
