@@ -28,17 +28,12 @@ jobs:
     steps:
       - name: Get code
         uses: actions/checkout@v3
-      - name: Get code
-        uses: actions/checkout@v3
       - name: Cache python libraries
         id: chached_libraries
         uses: actions/cache@v2
         with:
           path: ~/.cache/pip
-          key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }} 
-      - name: Install dependencies
-        #if: steps.chached_libraries.outputs.cache-hit != 'true'
-        run: pip install -r requirements.txt      
+          key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}      
       - name: Install dependencies
         run: pip install -r requirements.txt
       - name: Run main code
