@@ -19,4 +19,4 @@ df = pd.DataFrame(dict,columns=['x','y'])
 linear_plot= df.hvplot.scatter('x','y')
 
 if __name__=="__main__":
-    pn.Column(linear_plot).save('linear.png')
+    pn.Column(linear_plot).save('./pictures/linear.png')
