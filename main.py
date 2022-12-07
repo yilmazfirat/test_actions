@@ -18,4 +18,4 @@ dict = {
 
 df = pd.DataFrame(dict,columns=['x','y'])
 linear_plot= df.hvplot.scatter('x','y')
-pn.Column(linear_plot)
+pn.Column(linear_plot).show()
