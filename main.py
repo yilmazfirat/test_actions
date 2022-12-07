@@ -2,6 +2,7 @@ import pandas as pd
 import numpy as np
 import hvplot.pandas as hvplot
 import holoviews
+import panel as pn
 
 def add(x, y):
     """add function"""
@@ -16,4 +17,5 @@ dict = {
 }
 
 df = pd.DataFrame(dict,columns=['x','y'])
-df.hvplot.scatter('x','y')
+linear_plot= df.hvplot.scatter('x','y')
+pn.Column(linear_plot)
