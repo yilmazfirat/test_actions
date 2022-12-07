@@ -17,4 +17,4 @@ dict = {
 
 df = pd.DataFrame(dict,columns=['x','y'])
 linear_plot= df.hvplot.scatter('x','y')
-pn.Column(linear_plot).show()
+pn.Column(linear_plot).save('C:/Users/pnl0ux31/test.png')
