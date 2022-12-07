@@ -1,6 +1,6 @@
 import pandas as pd
 import numpy as np
-import hvplot
+import hvplot.pandas as hvplot
 import holoviews
 
 def add(x, y):
