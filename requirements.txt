@@ -3,3 +3,4 @@ numpy
 holoviews
 hvplot
 panel
+selenium
