@@ -28,5 +28,12 @@ jobs:
           cache: "pip" # caching pip dependencies
       - run: pip install -r requirements.txt
       - run: python main.py
+      - name: Upload artifacts
+        uses: actions/upload-artifacts@v3
+        with:
+          name: pictures
+          path: pictures
+            
+            
 
 
