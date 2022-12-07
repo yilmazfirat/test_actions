@@ -33,7 +33,18 @@ jobs:
         with:
           name: pictures
           path: pictures
+        
+  deploy:
+    needs: run_code
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get build artifacts
+        uses: actions/dowload-artifact@v3
+        with: 
+          name: pictures
+      - name: Output contents
+        run: ls
             
             
-
+            
 
