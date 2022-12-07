@@ -1,8 +1,21 @@
 name: test proj
 on: push
 jobs:
-  first_job_test:
-    needs: second_job
+  test_job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get code
+        uses: actions/checkout@v3
+
+      - name: SetUp Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.10"
+          cache: "pip" # caching pip dependencies
+      - run: pip install -r requirements.txt
+      - run: python test_main.py
+  run_code:
+    needs: test_job
     runs-on: ubuntu-latest
     steps:
       - name: Get code
@@ -16,16 +29,4 @@ jobs:
       - run: pip install -r requirements.txt
       - run: python main.py
 
-  second_job:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Get code
-        uses: actions/checkout@v3
 
-      - name: SetUp Python
-        uses: actions/setup-python@v4
-        with:
-          python-version: "3.10"
-          cache: "pip" # caching pip dependencies
-      - run: pip install -r requirements.txt
-      - run: python test_main.py
