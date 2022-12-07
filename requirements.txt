@@ -1,2 +1,5 @@
 pandas
 numpy
+holoviews
+hvplot.pandas
+hvplot
